@@ -66,6 +66,6 @@ body {
 }
 
 .flex-box:hover {
-	background-color: #009879;
-	color: #ffffff;
+	background-color: #009879 !important;
+	color: #ffffff !important;
 }
