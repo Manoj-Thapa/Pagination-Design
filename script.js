@@ -115,40 +115,40 @@ document.body.appendChild(containerUI);
 /************************************* EvenListener *************************************/
 divContainerUI.addEventListener('click', runEvent);
 
-let previous = ' '; //it is used to display the previous element which is selected
+let previous = document.querySelector('#previous'); //it is used to display the previous element which is selected
 
 function runEvent(e) {
 
 	function updateTableData(current, previous) {
 
-		if (previous !== ' ') {
-			//Update the Previous selected element to its background color and text color
-			previous.style.backgroundColor = '#dee7e6';
-			previous.style.color = '#009879';
-		}
+		//Update the Previous selected element to its background color and text color
+		previous.style.backgroundColor = '#dee7e6';
+		previous.style.color = '#009879';
 
-		//Update the currently selected element to new background color and text color
-		current.style.backgroundColor = '#009879';
-		current.style.color = '#dee7e6';
+		if (current !== null) {
+			//Update the currently selected element to new background color and text color
+			current.style.backgroundColor = '#009879';
+			current.style.color = '#dee7e6';
 
-		if (current.id === 'first') {
-			start = 1;
-			end = 10;
-			tableUI.textContent = ' ';
-			create_th();
-			create_td(storeData, start, end);
-		} else if (current.id === 'last') {
-			start = 91;
-			end = 100;
-			tableUI.textContent = ' ';
-			create_th();
-			create_td(storeData, start, end);
-		} else {
-			end = current.textContent * 10;
-			start = end - 9;
-			tableUI.textContent = ' ';
-			create_th();
-			create_td(storeData, start, end);
+			if (current.id === 'first') {
+				start = 1;
+				end = 10;
+				tableUI.textContent = ' ';
+				create_th();
+				create_td(storeData, start, end);
+			} else if (current.id === 'last') {
+				start = 91;
+				end = 100;
+				tableUI.textContent = ' ';
+				create_th();
+				create_td(storeData, start, end);
+			} else {
+				end = current.textContent * 10;
+				start = end - 9;
+				tableUI.textContent = ' ';
+				create_th();
+				create_td(storeData, start, end);
+			}
 		}
 	}
 
@@ -179,7 +179,7 @@ function runEvent(e) {
 		updateTableData(current, previous);
 	} else if (current.id === 'last') {
 		updateTableData(current, previous);
-	} else if (e.target.id === 'previous') {
+	} else if (e.target.id === 'previous' && previous !== null) {
 		current = previous.previousElementSibling;
 		updateTableData(current, previous);
 	}
