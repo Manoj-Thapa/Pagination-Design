@@ -81,7 +81,7 @@ let create_td = (data, start, end) => {
 		tableUI.append(tbodyUI);
 	}
 
-	containerUI.insertBefore(tableUI, divContainerUI); //Insert the table just before the pagination
+	containerUI.insertBefore(tableUI, divContainerUI); //insert the table just before the pagination
 
 };
 
@@ -121,12 +121,12 @@ function runEvent(e) {
 
 	function updateTableData(current, previous) {
 
-		//Update the Previous selected element to its background color and text color
+		//update the Previous selected element to its background color and text color
 		previous.style.backgroundColor = '#dee7e6';
 		previous.style.color = '#009879';
 
 		if (current !== null) {
-			//Update the currently selected element to new background color and text color
+			//update the currently selected element to new background color and text color
 			current.style.backgroundColor = '#009879';
 			current.style.color = '#dee7e6';
 
