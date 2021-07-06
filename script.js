@@ -186,4 +186,4 @@ function runEvent(e) {
 
 	previous = current;
 
-};
+}
